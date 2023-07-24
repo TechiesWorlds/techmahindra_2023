@@ -1,0 +1,622 @@
+1. #include
+* What is wrong in the following problem
+main() {
+int i,j;
+j = 10;
+i = j++ - j++;
+printf("%d %d", i,j);
+}
+ans: 0, 12
+2.#include
+* What is the output of the following problem
+main() {
+int j;
+for(j=0;j<3;j++)
+foo();
+}
+foo() {
+static int i = 10;
+i+=10;
+printf("%d\n",i);
+}
+/* Out put is (***since static int is used i value is retained between
+* 20 function calls )
+* 30
+* 40
+*
+/
+3.#include
+#include
+#include
+/* This is asked in PCS Bombay walk-in-interview
+* What is wrong in the following code
+*/
+main()
+{
+char *c;
+c = "Hello";
+printf("%s\n", c);
+}
+/*ans:- Hello, The code is successfully running */
+4. #include
+/* This problem is given in PCS BOMBAY walk-in-interview.
+* What is the final value of i and how many times loop is
+* Executed ?
+*/
+main()
+{
+int i,j,k,l,lc=0;
+/* the input is given as 1234 567 */
+printf("Enter the number string:<1234 567 \n");
+scanf("%2d%d%1d",&i,&j,&k);
+for(;k;k--,i++)
+for(l=0;l
+printf("%d %d\n",i,l);}
+printf("LOOPS= %d\n", lc-1);
+}
+/* Ans: i = 16, and loop is executed for 169 times */
+5.#include
+/* This is given in PCS Bombay walk-in-interview */
+/* What is the output of the following program */
+main() {
+union {
+int a;
+int b;
+int c;
+} u,v;
+u.a = 10;
+u.b = 20;
+printf("%d %d \n",u.a,u.b);
+}
+/* Ans : The latest value assigned to any of the union member
+will be present in the union members so answer is
+20 20
+*/
+6.#include
+main()
+{
+float i, j;
+scanf("%f %f", &i, &j);
+printf("%.2f %.3f", i, j);
+}
+/Ans:- 123.34 3. 234 */
+7.#include
+/* This is given in PCS Bombay walk-in-interview
+* What is the out put of the following problem ?
+*/
+main()
+{
+char *str = "12345";
+printf("%c %c %c\n", *str, *(str++), *(str++));
+}
+/* Ans: It is not 1 2 3
+* But it is 3 2 1 Why ??
+*/
+8.#include
+/* This problem is asked in PCS Bombay Walk-in-interview
+* Write a macro statement to find maximum of a,b
+*/
+#define max(a,b) (ab)?a:b
+main()
+{
+int a,b;
+a=3;
+b=4;
+printf("%d",max(a,b));
+}
+/* Ans is very simple the coding is just for testing it
+and output is 4 */
+~
+9.#include
+/* This problem is asked in PCS Bombay
+* What is the output of the following coding
+*/
+main()
+{
+int len=4;
+char *st="12345678";
+st = st -len;
+printf("%c\n",*st);
+}
+/* Ans : It will print some junk value */
+~
+10.#include
+main()
+{
+func(1);
+}
+func(int i){
+static char *str ={ "One","Two","Three","Four"};
+printf("%s\n",str[i++]);
+return;
+}
+/* Ans:- it will give warning because str is pointer to the char but
+it is initialized with more values
+if it is not considered then the answer is Two */
+11.
+#include
+main()
+{
+int i;
+for (i=1;i<100; i++)
+printf("%d %0x\n",i,i);
+}
+/* Ans:- i is from 1 to 99 for the first format,
+for the second format 1to9, ato f, 10 to 19,1ato1f, 20 to 29, etc */
+12.#include
+/* This problem is asked in PCS Bombay walk-in-interview
+* In the following code please write the syntax for
+* assing a value of 10 to field x of s and id_no 101 of s
+*/
+struct {
+int x;
+int y;
+union {
+int id_no;
+char *name;
+}b;
+}s,*st;
+main()
+{
+st = &s;
+st-x=10;
+st-b.id_no = 101;
+printf("%d %d\n",s..x,s.b.id_no);
+}
+/* Ans: The answer is st-x=10;
+* st-b.id_no=101;
+*/
+13.#include
+/* This problem was asked in PCS Bombay in a walk-in-interview
+* Write a recursive function that calculates
+* n * (n-1) * (n-2) * ....... 2 * 1
+*/
+main() {
+int factorial(int n);
+int i,ans;
+printf("\n Enter a Number:");
+scanf("%d",&i);
+ans = factorial(i);
+printf("\nFactorial by recursion = %d\n", ans);
+}
+int factorial(int n)
+{
+if (n <= 1) return (1);
+else
+return ( n * factorial(n-1));
+}
+~
+14.#include
+/* This problem is asked in PCS Bombay walk-in-interview
+* What is the output of the following problem
+*/
+main(){
+int j,ans;
+j = 4;
+ans = count(4);
+printf("%d\n",ans);
+}
+int count(int i)
+{
+if ( i < 0) return(i);
+else
+return( count(i-2) + count(i-1));
+}
+/* It is showing -18 as an answer */
+15.#include
+main()
+{
+int i=4;
+if(i=0)
+printf("statement 1");
+else
+printf("statement 2");
+}
+/* statement 2 */
+This is pcsb paper.
+1. #include
+* What is wrong in the following problem
+main() {
+int i,j;
+j = 10;
+i = j++ - j++;
+printf("%d %d", i,j);
+}
+ans: 0, 12
+2.#include
+* What is the output of the following problem
+main() {
+int j;
+for(j=0;j<3;j++)
+foo();
+}
+foo() {
+static int i = 10;
+i+=10;
+printf("%d\n",i);
+}
+/* Out put is (***since static int is used i value is retained between
+* 20 function calls )
+* 30
+* 40
+*
+/
+3.#include
+#include
+#include
+/* This is asked in PCS Bombay walk-in-interview
+* What is wrong in the following code
+*/
+main()
+{
+char *c;
+c = "Hello";
+printf("%s\n", c);
+}
+/*ans:- Hello, The code is successfully running */
+4. #include
+/* This problem is given in PCS BOMBAY walk-in-interview.
+* What is the final value of i and how many times loop is
+* Executed ?
+*/
+main()
+{
+int i,j,k,l,lc=0;
+/* the input is given as 1234 567 */
+printf("Enter the number string:<1234 567 \n");
+scanf("%2d%d%1d",&i,&j,&k);
+for(;k;k--,i++)
+for(l=0;l
+printf("%d %d\n",i,l);}
+printf("LOOPS= %d\n", lc-1);
+}
+/* Ans: i = 16, and loop is executed for 169 times */
+5.#include
+/* This is given in PCS Bombay walk-in-interview */
+/* What is the output of the following program */
+main() {
+union {
+int a;
+int b;
+int c;
+} u,v;
+u.a = 10;
+u.b = 20;
+printf("%d %d \n",u.a,u.b);
+}
+/* Ans : The latest value assigned to any of the union member
+will be present in the union members so answer is
+20 20
+*/
+6.#include
+main()
+{
+float i, j;
+scanf("%f %f", &i, &j);
+printf("%.2f %.3f", i, j);
+}
+/Ans:- 123.34 3. 234 */
+7.#include
+/* This is given in PCS Bombay walk-in-interview
+* What is the out put of the following problem ?
+*/
+main()
+{
+char *str = "12345";
+printf("%c %c %c\n", *str, *(str++), *(str++));
+}
+/* Ans: It is not 1 2 3
+* But it is 3 2 1 Why ??
+*/
+8.#include
+/* This problem is asked in PCS Bombay Walk-in-interview
+* Write a macro statement to find maximum of a,b
+*/
+#define max(a,b) (ab)?a:b
+main()
+{
+int a,b;
+a=3;
+b=4;
+printf("%d",max(a,b));
+}
+/* Ans is very simple the coding is just for testing it
+and output is 4 */
+~
+9.#include
+/* This problem is asked in PCS Bombay
+* What is the output of the following coding
+*/
+main()
+{
+int len=4;
+char *st="12345678";
+for(i=0; i<6; i++)
+st = st -len;
+printf("%c\n",*st);
+}
+/* Ans : It will print some junk value */
+~
+10.#include
+main()
+{
+func(1);
+}
+func(int i){
+static char *str ={ "One","Two","Three","Four"};
+printf("%s\n",str[i++]);
+return;
+}
+/* Ans:- it will give warning because str is pointer to the char but
+it is initialized with more values
+if it is not considered then the answer is Two */
+11.
+#include
+main()
+{
+int i;
+for (i=1;i<100; i++)
+printf("%d %0x\n",i,i);
+}
+/* Ans:- i is from 1 to 99 for the first format,
+for the second format 1to9, ato f, 10 to 19,1ato1f, 20 to 29, etc */
+12.#include
+/* This problem is asked in PCS Bombay walk-in-interview
+* In the following code please write the syntax for
+* assing a value of 10 to field x of s and id_no 101 of s
+*/
+struct {
+int x;
+int y;
+union {
+int id_no;
+char *name;
+}b;
+}s,*st;
+main()
+{
+st = &s;
+st-x=10;
+st-b.id_no = 101;
+printf("%d %d\n",s.x,s.b.id_no);
+}
+/* Ans: The answer is st-x=10;
+* st-b.id_no=101;
+*/
+13.#include
+/* This problem was asked in PCS Bombay in a walk-in-interview
+* Write a recursive function that calculates
+* n * (n-1) * (n-2) * ....... 2 * 1
+*/
+main() {
+int factorial(int n);
+int i,ans;
+printf("\n Enter a Number:");
+scanf("%d",&i);
+ans = factorial(i);
+printf("\nFactorial by recursion = %d\n", ans);
+}
+int factorial(int n)
+{
+if (n <= 1) return (1);
+else
+return ( n * factorial(n-1));
+}
+~
+14.#include
+/* This problem is asked in PCS Bombay walk-in-interview
+* What is the output of the following problem
+*/
+main(){
+int j,ans;
+j = 4;
+ans = count(4);
+printf("%d\n",ans);
+}
+int count(int i)
+{
+if ( i < 0) return(i);
+else
+return( count(i-2) + count(i-1));
+}
+/* It is showing -18 as an answer */
+15.#include
+main()
+{
+int i=4;
+if(i=0)
+printf("statement 1");
+else
+printf("statement 2");
+}
+/* statement 2 */
+---------------------------------------------
+There are total 15 people. 7 speaks French and 8 speaks Spanish 3 do not speak any language.
+Which part of total people speaks both languages.
+Ans: 1/5
+2. A jogger wants to save ?th of his jogging time. He should increase his speed by how much
+%age.
+Ans: 33.33 %
+3. A is an integer. Dividing 89 & 125 gives remainders 4 & 6 respectively. Find a ?
+Ans: 17
+4. In a office work is distribute between p persons. If 1/8 members are absent then work increased
+for each person.
+5. 120, 315, 300, 345, ? ---- 390
+6. 2,1, 4, 3, 6, 6, 8, 10, 10, ?, ? --- 12, 15
+7. A Child is saying numbers 1, 2, 3, 4. When he says 1 Another child puts white marble in a box.
+On saying 2 he puts Blue marble and on saying 3 he puts red ma rble. When child says 4 other
+child take out white and blue marble. Child says some no. in a sequence then questions are
+based on the no. of marbles in the box. Like this
+1,1,2,3,1, 4, 1,1,3,2,2,4,111?
+a) Find the no. of Blue marble in the box ?..2
+b) Find the no. of White --------do----------- ----2
+c) No. of red marbles ------- 7
+8. Questions based on logical reasoning (R. S. Agrawal)
+a) all pens are hens. All hens are doctor.
+(I) all pens are doctor.
+(II) all doctors are pen.
+Ans: Only first conclusion is correct
+9. if M person r buying a thing costing D$ each,, if 3 person get away,, how much each person has
+to spend so that total expenditure is same ???
+10.which is smallest?
+a. 1/7
+b 1/8
+c 2/9
+d 3/13 ...or something similar having denominations as 11 and 13 in option "d" and "e"
+11.f Rix can collect 45 pieces in 1 min.. and Rax take 1 and half minute for same,, what is time
+require d to collect 300 pieces when both working together??
+12.One long quiz followed by 5 quest... 3 cages having 3 tags on them, sum of digit of cage num
+not to exceed 10, and other cond.
+13.A is shorter than B but taller than E, D is tallest, C is just shorter than A, who is shortest or
+similar quest...?
+14.Rectangular box,, 25*20*2 converted in to cylinder of dia 10... what is height in terms of "pai"
+---------------------------------------------------
+1.Which of the following statement(s) is(are) not true
+a. Literate workers have small families than illiterate workers.
+b. Families with 2 or less than 2 children are commoner than families with 3 or more children.
+c. 2 children families constitute 60% of the families of workers.
+d. More the no. of children a worker has the more illiterate he is.
+e. None the above statement is true. Ans : e
+2. Of a mutual instrument vibrate 6,8 & 12 intervals respectively. If all three vibrate together what
+is the time interval before all vibrate together again? Ans : 1/2 sec HCF of DR
+3. Certain no. of men can finish a piece of work in 10 days. If however there were 10 men less it
+will take 10 days more for the work to be finished. How many men were there originally. Ans :
+110 men
+4. In simple interest what sum amounts of Rs.1120/- in 4 years and Rs.1200/- in 5 years. Ans :
+Rs.800/-
+Sum of money at compound interest amounts of thrice itself in 3 years. In how many years will
+it take 9 times itself. Ans : 6
+5. Two trains in the same direction at 50 & 32 kmph respectively. A man in the slower train
+observes the 15 seconds elapse before the faster train completely passes him. What is the length
+of faster train ? Ans : 75m
+How many mashes are there in a sq. m of wire gauge. Each mesh being 8mm long X 5mm
+width
+Ans : 25000
+6. x% of y is y% of ? Ans : x
+7. The price of sugar increases by 20%, by what % house-wife should reduce the consumption of
+sugar so that expenditure on sugar can be same as before Ans : 16.66
+8. A man spending half of his salary for house hold expenses, 1/4th for rent, 1/5th for travel
+expenses, a man deposits the rest in a bank. If his monthly deposits in the bank amount 50.
+What is his monthly salary ?
+Ans : 1000
+9. The population of a city increases @ 4% p.a. That is an additioanl annual increase of 4% of the
+population due to this influx of job seekers, the % increase in population after 2 years is
+10.The ratio of no. of boys & girls in a school is 3:2 Out of these ?% the boys & 25% of girls are
+scholarship holders. % of students who are not scholarship holders.?
+11.15 Men take 21 days of 8 hrs. each to do a piece of work. How many days of 6 hrs. each would
+do if 21 women take. If 3 women do as much work of 2 men. Ans : 30
+12.A cylinder ingot 6cms in diameter and 6 cms in height is and spheres all of the same size are
+made from the material obtained.what is the diameter of each sphere? Ans :3cms
+13.Rectangular plank of sqrt(2)meters wide can be placed so that it is on either side of the diagonal
+of a square shown below.what is the area of the plank? Ans :7sqrt(2) fig no14.The difference b/w the compound interest payble half yearly and the simple interest on a certain
+sum cont out at 10% p.a for 1 year is Rs 25 what is the sum Ans:10,000
+15.what is the smallest n0 by which 2880 must be divided in order to make it a perfect square ?
+a)3 b)4 c)5 d) 6 e)8 Ans: 3
+16.A father is 30 times more than his son however he will be only thrice as old as the son what is
+father's present age ?Ans : 40
+17.An article sold at a profit of 20% if both the c.p & s.p were tobe Rs.20/- the profit would be
+10% more. What is the c.p of that article? Ans : 1% loss
+18.How can a process be started automatically in UNIX ? ANS : Through CRONTAB { options
+were crontab, inittab, and two more }
+19.What is the meaning of run level 6 ? ANS. Reboot
+20.How can you determine which file has generated the CORE ?
+Options were..
+1.ps -ef | grep core
+2.ps -ef | grep <executable file name > Freshersworld.com
+3.pfile core
+4.filec core
+21.Diff.between inlinefunction((++)-macns(c)
+22.3 to 4 questions on conditional operator :?:
+23.Write a macro for sqaring no.
+24.Trees -3 noded tree ( 4 to 5 questions fundamentals) Maximum possible no.of arrnging these
+nodes
+25.Arrange the nodes in depth first order breadth first order
+26.Linked lists Q) Given two statments
+27.Allocating memory dynamiccaly
+28.Arrays Tree the above both and find the mistake
+29.Pointers (7 to 8 questions) Schaum series Pointer to functions, to arrays 4 statements
+->meaning,syntax for another 4 statements
+30.Booting-def(When you on the system the process that takes place is ------
+31.Type of global variable can be accessible from any where in the working environment ( external
+global variable)
+32.Which of the following can be accessed randomly Ans. a. one way linked list
+b. two way "
+c. Arrays
+d. Trees
+33.Write a class for a cycle purchase(data items req.)
+------------------------------------
+1. If a boat is moving in upstream with velocity of 14km/hr and goes downstream with a velocity of
+40km/hr. then what is the speed of the stream?
+(a) 13km/hr
+(b) 26km/hr
+(c) 34km/hr
+(d) none of these
+Ans: A
+2. find the value of (0.75*0.75*0.75-0.001)/(0.75*0.75-0.75+0.01)
+(a) 0.845
+(b) 1.908
+(c) 2.312
+(d) 0.001
+Ans: A
+3. A man buys 12 lts of liquid which contain 20% of the liquid and the rest is water. He then mixes it
+with 10lts of another mixture with 30% of liquid. What is the % of water in the new mixture?
+4.A certain number of men can finish a piece of work in 10 days. If however there were 10 men less it
+will take 10days more for the work to be finished. How many men were there originally?
+(a) 110 men
+(b) 130 men
+(c) 100 men
+(d) none of these
+ans:- A
+5. In simple interest what sum amount of Rs. 1120/- in 4 years and Rs.1200/- in 5 years?
+(a) Rs.500
+(b) Rs.600
+(c) Rs.800
+(d) Rs.900
+6. x% of y is y% of?
+(a) x/y
+(b) 2y
+(c) x
+(d) can’t be determined
+ans: C
+7. The population of a city increases @ 4%p.a. there is an additional annual increases of 4% of the
+population due to the influx of job seekers. Find the % increase in population after 2 years?
+8. The ratio of the number of boys and girls in a school is 3:2. Out of these 10% the boys and 25% of
+girls are scholarship holders. % of students who are not scholarship holders?
+9. A rectangular plant (2)^1/2 meters wide can be placed so that it is on either side of the diagonal of a
+square shown below. (Figure is available). what
+is the area of the Plank?
+ans: 7*(2)^1/2.
+Logical Reasoning:
+1. a,c,e,g..
+(a) h
+(b)i
+(c)d
+(d)j
+Ans: b
+2. a,e,i,m,q,u_,_
+(a) y,e
+(b) b,f
+(c) g,i
+(d) none
+3. 1,2,3,5,7,11….
+(a) 15
+(b) 9
+(c)13
+(d)12
+ans: c(Series of prime no)
+4. 1,3,4,8,15,27,…
+(a) 60
+(b)59
+(c)43
+(d)50
+5.All pens are elephants. some elephants are cats.
+(a) Some pens are cats
+(b) No pens are cats
+(c) All pens are cats
+(d) None of the above
+6. Some green are blue. No blue are white.
+(a) No green are white
+(b) Some green are white
+(c) No green are white
+(d) None of the above
+ans: b
